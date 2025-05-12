@@ -1,2 +1,2 @@
 # RoboKaya
-Website membuat analisis rekomendasi portofolio saham.
+The website provides analysis and recommendations for stock portfolio planning.
