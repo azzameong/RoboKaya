@@ -3,85 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RoboKaya</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-    }
-    header {
-      background-color: #2e86de;
-      color: white;
-      padding: 20px 40px;
-      text-align: center;
-    }
-    nav {
-      background-color: #2163a6;
-      padding: 10px 40px;
-      text-align: right;
-    }
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: #eaf2ff;
-    }
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: #444;
-    }
-    .hero button {
-      padding: 12px 24px;
-      font-size: 18px;
-      color: white;
-      background-color: #2e86de;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    footer {
-      background-color: #2e86de;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-    }
-  </style>
+  <title>Website 2 Halaman</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 
-  <header>
-    <h1>AI Portfolio Planner</h1>
-    <p>Rekomendasi Portofolio Investasi Sesuai Profil Anda</p>
-  </header>
+  <div id="loginPage" class="min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+      <input type="text" id="username" placeholder="Username" class="w-full p-2 border rounded mb-4" />
+      <input type="password" id="password" placeholder="Password" class="w-full p-2 border rounded mb-4" />
+      <button onclick="goToInputPage()" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Login</button>
+    </div>
+  </div>
 
-  <nav>
-    <a href="#fitur">Fitur</a>
-    <a href="#tentang">Tentang</a>
-    <a href="#mulai">Mulai</a>
-  </nav>
+  <div id="inputPage" class="hidden min-h-screen p-6">
+    <div class="max-w-6xl mx-auto bg-white rounded shadow p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold mb-4">Form Pertanyaan</h2>
 
-  <section class="hero">
-    <h1>Investasi Cerdas dengan Bantuan AI</h1>
-    <p>Masukkan modal dan preferensi Anda, dapatkan rekomendasi portofolio investasi: High, Medium, Low Risk.</p>
-    <a href="/rekomendasi.html"><button>Mulai Sekarang</button></a>
-  </section>
+        <div>
+          <label class="font-semibold">1. Berapa modal awal yang akan Anda investasikan?</label>
+          <input type="number" id="q1" class="w-full mt-2 p-2 border rounded" oninput="updateSummary()"/>
+        </div>
 
-  <footer>
-    © 2025 AI Portfolio Planner. Dibuat dengan ❤ oleh Tim InvestAI.
-  </footer>
+        <div>
+          <label class="font-semibold">2. Apa tujuan utama dari investasi ini?</label>
+          <select id="q2" class="w-full mt-2 p-2 border rounded" onchange="updateSummary()">
+            <option value="" disabled selected hidden>Pilih opsi</option>
+            <option value="A1">Dana pensiun</option>
+            <option value="A2">Pendidikan</option>
+            <option value="A3">Membeli aset besar</option>
+            <option value="A4">Mengembangkan kekayaan</option>
+            <option value="A5">Pendapatan pasif</option>
+            <option value="A6">Dana jangka pendek</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-semibold">3. Kapan Anda berencana untuk menggunakan dana tersebut?</label>
+          <select id="q3" class="w-full mt-2 p-2 border rounded" onchange="updateSummary()">
+            <option value="" disabled selected hidden>Pilih opsi</option>
+            <option value="B1">Kurang dari 3 tahun</option>
+            <option value="B2">Antara 3-7 tahun</option>
+            <option value="B3">Antara 8-15 tahun</option>
+            <option value="B4">Lebih dari 15 tahun</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-semibold">4. Bayangkan nilai portofolio Anda turun 20% dalam satu bulan. Apa reaksi Anda yang paling mungkin?</label>
+          <select id="q4" class="w-full mt-2 p-2 border rounded" onchange="updateSummary()">
+            <option value="" disabled selected hidden>Pilih opsi</option>
+            <option value="C1">Panik dan menjual seluruh investasi untuk mengamankan sisa modal</option>
+            <option value="C2">Menjual sebagian investasi untuk mengurangi risiko lebih lanjut</option>
+            <option value="C3">Tidak melakukan apa-apa dan menunggu pasar pulih</option>
+            <option value="C4">Menganggap ini kesempatan dan menambah investasi (beli di harga murah)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-semibold">5. Seberapa paham Anda tentang risiko dan potensi keuntungan investasi saham?</label>
+          <select id="q5" class="w-full mt-2 p-2 border rounded" onchange="updateSummary()">
+            <option value="" disabled selected hidden>Pilih opsi</option>
+            <option value="D1">Pemula (Saya baru memulai dan masih belajar dasar-dasarnya)</option>
+            <option value="D2">Menengah (Saya paham konsep dasar seperti diversifikasi dan risiko pasar)</option>
+            <option value="D3">Mahir (Saya nyaman menganalisis dan memilih instrumen investasi sendiri)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-semibold">6. Dana yang Anda investasikan ini berasal dari</label>
+          <select id="q6" class="w-full mt-2 p-2 border rounded" onchange="updateSummary()">
+            <option value="" disabled selected hidden>Pilih opsi</option>
+            <option value="E1">Dana "dingin" atau tabungan yang memang dikhususkan untuk investasi</option>
+            <option value="E2">Sebagian dari pendapatan bulanan rutin</option>
+            <option value="E3">Bonus, warisan, atau dana tak terduga lainnya</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-semibold">7. Pilih sektor industri yang Anda minati (Boleh lebih dari satu)</label>
+          <select id="q7" class="w-full mt-2 p-2 border rounded" onchange="updateSummary()">
+            <option value="" disabled selected hidden>Pilih opsi</option>
+            <option value="F1">Perbankan</option>
+            <option value="F2">Teknologi</option>
+            <option value="F3">Energi</option>
+            <option value="F4">Kesehatan</option>
+            <option value="F5">Konsumsi</option>
+            <option value="F6">Otomotif</option>
+            <option value="F7">Properti</option>
+            <option value="F8">Infrastruktur</option>
+            <option value="F9">Yang lain</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold mb-4">Ringkasan Jawaban</h2>
+        <div id="summaryContent" class="space-y-2 text-sm text-gray-700 bg-gray-50 p-4 rounded border"></div>
+
+        <h2 class="text-2xl font-bold mt-6 mb-4">Hasil Kalkulasi Investasi (Contoh)</h2>
+        <div id="calculationOutput" class="space-y-3 text-sm text-gray-700 bg-blue-50 p-4 rounded border border-blue-300 min-h-[150px]">
+          <p>Mohon lengkapi setidaknya Modal Awal dan Tujuan Investasi untuk melihat estimasi kalkulasi.</p>
+        </div>
+
+        <button onclick="goToLoginPage()" class="mt-8 w-full bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 md:w-auto">Logout</button>
+      </div>
+    </div>
+  </div>
 
 </body>
+<footer>
+  <script src="robokaya.js" charset="UTF-8"></script>
+</footer>
 </html>
