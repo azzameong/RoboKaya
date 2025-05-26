@@ -1,0 +1,62 @@
+# --- File Konfigurasi Sensitif & Lingkungan ---
+# Ini adalah bagian paling penting untuk keamanan!
+# Jangan pernah memasukkan file yang berisi password, API key, atau rahasia lainnya.
+.env
+*.env
+.env.*
+config.ini
+secrets.json
+
+# --- Folder Virtual Environment Python ---
+# Folder ini berisi semua library yang diinstall dan bisa sangat besar.
+# Cukup bagikan file requirements.txt saja.
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# --- Cache & File Sementara Python ---
+# Dibuat otomatis oleh Python, tidak perlu dilacak.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# --- File Database Lokal ---
+# Untuk pengujian di mesin masing-masing.
+*.sqlite3
+*.db
+
+# --- Log & File Upload ---
+# File log akan terus berubah dan tidak relevan untuk dilacak.
+*.log
+logs/
+uploads/
+
+# --- Pengaturan IDE & Editor ---
+# Setiap developer punya pengaturannya sendiri.
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- File Sistem Operasi ---
+# File "sampah" yang dibuat oleh macOS dan Windows.
+.DS_Store
+Thumbs.db
+
+# --- File Build & Distribusi Python ---
+build/
+dist/
+*.egg
+
+# --- (Opsional) Jika Frontend menggunakan Node.js (React/Vue) ---
+# Folder node_modules SANGAT BESAR dan wajib diabaikan.
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json # Tergantung strategi tim, kadang ini di-commit
+.pnp.*
