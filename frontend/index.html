@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robokaya</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="main-header">
+      <div class="menu-toggle">
+        <span class="material-symbols-outlined">density_small</span>
+      </div>
+      <div class="header-pageInfo" id="pageInfo">About</div>
+      <div id="date"></div>
+      <div id="clock"></div>
+      <div class="header-profile">
+        <span class="material-symbols-outlined">account_circle</span>
+        <span class="p">Log In</span>
+        <span class="material-symbols-outlined">login</span>
+      </div>
+    </header>
+
+    <!-- Sidebar Kiri -->
+    <aside class="sidebar-left">
+      <ul>
+        <li>
+          <a href="#halaman1" title="Halaman 1">
+            <span class="material-symbols-outlined">home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#halaman2" title="Halaman 2">
+            <span class="material-symbols-outlined">assignment</span>
+          </a>
+        </li>
+        <li>
+          <a href="#halaman3" title="Halaman 3">
+            <span class="material-symbols-outlined">article_person</span>
+          </a>
+        </li>
+        <li>
+          <a href="#halaman4" title="Halaman 4">
+            <span class="material-symbols-outlined">info</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Sidebar Kanan (Scroll Progress) -->
+    <aside class="sidebar-right">
+      <div class="scroll-track">
+        <div class="scroll-progress"></div>
+      </div>
+    </aside>
+
+    <!-- Konten Utama -->
+    <main>
+      <!-- Halaman 1 -->
+      <section id="halaman1" class="content">
+        <div class="konten">
+          <h1>Lorem ipsum dolor sit amet, consectetur</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam,
+          </p>
+        </div>
+      </section>
+
+      <!-- Halaman 2 -->
+      <section id="halaman2" class="content">
+        <div class="konten">
+          <h1>Question</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis
+          </p>
+          <h1>Answer</h1>
+          <p>Put your Answer here</p>
+        </div>
+      </section>
+
+      <!-- Halaman 3 -->
+      <section id="halaman3" class="content">
+        <div class="konten">
+          <h1>Portfolio</h1>
+          <p>Ini adalah konten untuk halaman ketiga.</p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+                <th>Kota</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Azza</td>
+                <td>22</td>
+                <td>Bandung</td>
+              </tr>
+              <tr>
+                <td>Budi</td>
+                <td>25</td>
+                <td>Jakarta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Halaman 4 -->
+      <section id="halaman4" class="content">
+        <div class="konten">
+          <h1>Feedbacks</h1>
+          <p>Ini adalah konten untuk halaman keempat.</p>
+          <h1>Contact</h1>
+
+          <h1>Comment</h1>
+        </div>
+      </section>
+
+      <div class="content">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+        <div class="col">4</div>
+        <div class="col">5</div>
+        <div class="col">6</div>
+        <div class="col">7</div>
+        <div class="col">8</div>
+        <div class="col">9</div>
+        <div class="col">10</div>
+        <div class="col">11</div>
+        <div class="col">12</div>
+      </div>
+    </main>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
