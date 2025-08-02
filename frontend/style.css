@@ -44,23 +44,62 @@ body {
   --warna-teks: #333;
   --warna-putih-transparan: rgba(255, 255, 255, 0.8);
 
-  --fs-h1: 20px;
+  /* Font Sizes */
+  --fs-h1: 64px;
+  --fs-h2: 24px;
+  --fs-h3: 16px;
   --fs-p: 16px;
   --fs-button: 16px;
+  --fs-small: 14px;
 
-  --font-default: "IBM Plex Sans", sans-serif;
+  /* Font Families */
+  --font-nicomoji: 'Nico Moji', sans-serif;
+  --font-default: 'IBM Plex Sans', sans-serif;
 }
+
+/* Global Style */
 body {
   font-family: var(--font-default);
   color: var(--warna-teks);
 }
+
+/* Headings */
 h1 {
+  font-family: var(--font-nicomoji);
   font-size: var(--fs-h1);
+  font-weight: normal;
+}
+
+h2 {
+  font-family: var(--font-nicomoji);
+  font-size: var(--fs-h2);
+  font-weight: normal;
+}
+
+h3 {
+  font-family: var(--font-default);
+  font-size: var(--fs-h3);
   font-weight: bold;
 }
+
+/* Paragraph */
 p {
+  font-family: var(--font-default);
   font-size: var(--fs-p);
 }
+
+/* Button */
+button {
+  font-family: var(--font-nicomoji);
+  font-size: var(--fs-button);
+}
+
+/* Small text */
+small {
+  font-family: var(--font-default);
+  font-size: var(--fs-small);
+}
+
 
 .main-header {
   position: fixed;
@@ -113,27 +152,7 @@ p {
 body::-webkit-scrollbar {
   display: none;
 }
-.sidebar-right {
-  position: fixed;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  padding: 10px;
-  z-index: 999;
-}
-.scroll-track {
-  width: 6px;
-  height: 200px;
-  background-color: #eee;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.scroll-progress {
-  width: 100%;
-  height: 20%;
-  background-color: #1c1b1f;
-  border-radius: 3px;
-}
+
 
 @media (max-width: 950px) {
   .header-logo {
@@ -162,10 +181,6 @@ body::-webkit-scrollbar {
     height: 24px;
     line-height: 24px;
     text-align: center;
-  }
-
-  .sidebar-right {
-    display: none;
   }
 
   .header-pageInfo {
