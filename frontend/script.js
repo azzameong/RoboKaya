@@ -24,3 +24,12 @@ function updateWIBTime() {
 setInterval(updateWIBTime, 1000); // Update tiap detik
 updateWIBTime(); // Panggil pertama kali
 
+document.getElementById("showLogin").addEventListener("click", () => {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("registerForm").style.display = "none";
+});
+
+document.getElementById("showRegister").addEventListener("click", () => {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registerForm").style.display = "block";
+});
