@@ -4,17 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robokaya</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="CSS/user.css" />
   </head>
   <body>
     <!-- Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <nav>
-        <a href="#hal1" class="nav-item">🏠</a>
-        <a href="#hal2" class="nav-item">📄</a>
-        <a href="#hal3" class="nav-item">📊</a>
-        <a href="#hal4" class="nav-item">⚙️</a>
+      <!-- Logo -->
+      <div class="logo">Robokaya</div>
+
+      <!-- Menu Navigasi -->
+      <nav aria-label="Menu Sidebar" class="menu">
+        <ul>
+          <li>
+            <a href="#hal1" aria-label="Halaman 1">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >home</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="#hal2" aria-label="Halaman 2">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >assignment</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="#hal3" aria-label="Halaman 3">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >article_person</span
+              >
+            </a>
+          </li>
+          <li>
+            <a href="#hal4" aria-label="Halaman 4">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >comment_bank</span
+              >
+            </a>
+          </li>
+        </ul>
       </nav>
+
+      <!-- Bagian bawah (Profile + Logout) -->
+      <div class="bottom-section">
+        <a href="#profile" aria-label="Profile">
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >account_circle</span
+          >
+        </a>
+        <a href="#logout" aria-label="Logout">
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >logout</span
+          >
+        </a>
+      </div>
     </aside>
 
     <!-- Wrapper konten -->
@@ -30,7 +79,6 @@
           </div>
           <button class="search-btn">🔍</button>
         </div>
-        
       </header>
 
       <!-- Konten -->
