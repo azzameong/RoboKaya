@@ -1,28 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Login/Register</title>
-  <link rel="stylesheet" href="CSS/user.css" />
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robokaya</title>
+    <link rel="stylesheet" href="CSS/user.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <a href="#hal1" class="nav-item">🏠</a>
+        <a href="#hal2" class="nav-item">📄</a>
+        <a href="#hal3" class="nav-item">📊</a>
+        <a href="#hal4" class="nav-item">⚙️</a>
+      </nav>
+    </aside>
 
-</head>
-<body>
-  <div class="container">
-    <!-- 12 kolom -->
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <!-- Wrapper konten -->
+    <div class="content-wrapper">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">Azza</div>
+        <div class="header-center" id="page-title">Halaman 1</div>
+        <div class="header-right">
+          <div id="datetime-container">
+            <div id="time"></div>
+            <div id="date"></div>
+          </div>
+          <button class="search-btn">🔍</button>
+        </div>
+        
+      </header>
 
-  <script src="JS/auth.js"></script>
-</body>
+      <!-- Konten -->
+      <main class="content">
+        <section id="hal1" class="page">
+          <div class="grid-box">Halaman 1 - Konten</div>
+        </section>
+        <section id="hal2" class="page">
+          <div class="grid-box">Halaman 2 - Konten</div>
+        </section>
+        <section id="hal3" class="page">
+          <div class="grid-box">Halaman 3 - Konten</div>
+        </section>
+        <section id="hal4" class="page">
+          <div class="grid-box">Halaman 4 - Konten</div>
+        </section>
+      </main>
+    </div>
+
+    <script src="JS/user.js"></script>
+  </body>
 </html>
