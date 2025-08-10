@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 77px);
+  column-gap: 20px; /* Gutter */
+  justify-content: end; /* Rata kanan */
+  padding-right: 40px; /* Offset dari kanan */
+  padding-left: 40px;
+  height: 100vh;
+  position: relative;
+}
+
+/* Styling konten di dalam grid */
+.container div {
+  background-color: rgba(255, 0, 0, 0.1); /* Warna kolom dengan opacity 10% */
+  height: 100%;
+}
