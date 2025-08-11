@@ -19,7 +19,6 @@ body {
   left: 0;
   width: var(--sidebar-width, 80px);
   height: 100vh;
-  background: #222;
   color: white;
 
   display: flex;
@@ -30,20 +29,39 @@ body {
 }
 
 .logo {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 11px;
+  font-family: 'Nico Moji', sans-serif;
   text-align: center;
-}
 
-.menu {
-  flex: 1; /* menu ambil sisa ruang */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* menu di tengah */
 }
 
 .menu ul {
   list-style: none;
+  position: relative;
+  z-index: 1; /* ikon tetap di atas kotak */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px; /* jarak antar ikon */
+}
+
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* kotak & ikon rata tengah */
+  position: relative;
+}
+
+.menu::before {
+  content: "";
+  position: absolute;
+  width: 54px;
+  height: 448px; /* total jarak atas+bawah = 36px */
+  background: linear-gradient(to bottom, #f9b233, #435278);
+  border-radius: 27px;
+  z-index: 0; /* di belakang ikon */
 }
 
 .menu li {
@@ -56,11 +74,6 @@ body {
   display: block;
 }
 
-.menu a:hover {
-  background: #444;
-  border-radius: 8px;
-  padding: 5px;
-}
 
 .bottom-section {
   display: flex;
@@ -107,17 +120,16 @@ body {
   left: var(--sidebar-width);
   right: 0;
   height: 80px;
-  background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  border-bottom: 1px solid #ddd;
   z-index: 1000;
 }
 
 .header-left {
-  font-weight: bold;
+  font-family: 'Nico Moji', sans-serif;
+  font-size: 20px
 }
 
 .header-center {
@@ -125,31 +137,100 @@ body {
   font-weight: bold;
 }
 
+#page-title {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 64px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 165, 0, 0.10), /* Orange transparan 34% */
+    rgba(0, 35, 102, 0.10)  /* Biru tua transparan 34% */
+  );
+  font-family: 'Nico Moji', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: black;
+  position: relative;
+  border-radius: 60px;
+}
+
+#page-title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 60px;
+  background: linear-gradient(270deg, #FFA500, #002366, #FFA500);
+  background-size: 300% 300%;
+  animation: borderMove 4s linear infinite;
+
+  /* versi WebKit */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+
+  /* versi standar */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
 .header-right {
   display: flex;
   align-items: center;
   gap: 15px;
 }
+ 
 
 /* Tambahkan di CSS/user.css */
+#time,
+#date {
+  font-family: 'Nico Moji', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
 #datetime-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end; /* atau flex-start sesuai kebutuhan */
 }
 
+.circle-btn {
+  width: 48px;
+  height: 48px;
+  background: #d9d9d9; /* Background abu-abu */
+  border-radius: 50%;
 
-.search-btn {
-  background: #ddd;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 10px;
+  /* Border dalam (simulasi stroke inside) */
+  box-shadow: 
+    inset 0 0 0 2px #e7e7e7,   /* Inner border warna sama */
+    0 2px 4px rgba(0, 0, 0, 0.25), /* Drop shadow */
+    inset 0 2px 4px rgba(0, 0, 0, 0.25); /* Inner shadow */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 16px;
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
-.search-btn:hover {
-  background: #ccc;
+
+.circle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%; /* tetap bulat */
+  padding: 0;         /* jangan tambah padding */
 }
 
 /* Konten utama */

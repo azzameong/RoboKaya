@@ -11,10 +11,10 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  if (current === "hal1") title.textContent = "Halaman 1";
-  if (current === "hal2") title.textContent = "Halaman 2";
-  if (current === "hal3") title.textContent = "Halaman 3";
-  if (current === "hal4") title.textContent = "Halaman 4";
+  if (current === "hal1") title.textContent = "ABOUT";
+  if (current === "hal2") title.textContent = "PREFERENCE";
+  if (current === "hal3") title.textContent = "PORTFOLIO";
+  if (current === "hal4") title.textContent = "COMMENT";
 });
 
 function updateDateTime() {
