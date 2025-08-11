@@ -40,3 +40,11 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
+document.getElementById("search-btn").addEventListener("click", function () {
+  const input = document.getElementById("search-input");
+  input.classList.toggle("show");
+  if (input.classList.contains("show")) {
+    input.focus(); // otomatis fokus kalau muncul
+  }
+});
+

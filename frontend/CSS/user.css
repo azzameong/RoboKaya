@@ -35,6 +35,8 @@ body {
 
 }
 
+
+
 .menu ul {
   list-style: none;
   position: relative;
@@ -86,12 +88,13 @@ body {
   text-decoration: none;
   display: block;
   text-align: center;
+  padding: 5px; /* tambahkan padding tetap di sini */
+  border-radius: 8px; /* bentuk tetap */
+  transition: background 0.2s; /* transisi halus */
 }
 
 .bottom-section a:hover {
   background: #444;
-  border-radius: 8px;
-  padding: 5px;
 }
 
 .nav-item {
@@ -192,7 +195,29 @@ body {
   align-items: center;
   gap: 15px;
 }
- 
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#search-input {
+  width: 0;
+  opacity: 0;
+  padding: 8px 12px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+#search-input.show {
+  width: 150px; /* lebar saat muncul */
+  opacity: 1;
+}
+
 
 /* Tambahkan di CSS/user.css */
 #time,
@@ -232,6 +257,13 @@ body {
   border-radius: 50%; /* tetap bulat */
   padding: 0;         /* jangan tambah padding */
 }
+button.circle-btn {
+  border: none;
+  outline: none;
+  padding: 0;
+  background: #d9d9d9; /* sama seperti circle-btn biasa */
+  border-radius: 50%;
+}
 
 /* Konten utama */
 .content {
@@ -254,3 +286,4 @@ body {
   justify-content: center;
   font-size: 2rem;
 }
+
