@@ -54,6 +54,9 @@ html, body {
   gap: 32px;
 }
 
+.material-symbols-outlined{
+  font-size:20px;
+}
 .menu .material-symbols-outlined {
   color: white;
 }
@@ -61,7 +64,7 @@ html, body {
 .menu::before {
   content: "";
   position: absolute;
-  width: 54px;
+  width: 42px;
   height: 284px;
   background: linear-gradient(to bottom, #f9b233, #435278);
   border-radius: 27px;
@@ -105,20 +108,22 @@ html, body {
   top: 0;
   left: var(--sidebar-width);
   right: 0;
-  height: 80px;
+  height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* biarkan kiri & kanan */
   padding: 0 20px;
   z-index: 1000;
 }
 
-/* Judul halaman dengan border animasi */
+/* Indikator halaman */
 #page-title {
+  flex: 1;
   display: flex;
   align-items: center;
-  height: 48px;
-  padding: 0 64px;
+  height: 32px;
+  margin: 0 32px 0 32px;
+  padding: 0 32px;
   background: linear-gradient(
     to bottom,
     rgba(255, 165, 0, 0.10),
@@ -129,24 +134,31 @@ html, body {
   letter-spacing: 1px;
   font-weight: 300;
   color: black;
+  min-width: 0;
+  justify-content: center;
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
+/* Border animasi tetap sama */
 #page-title::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   padding: 1px;
   background: linear-gradient(270deg, #FFA500, #002366, #FFA500);
   background-size: 300% 300%;
+  border-radius: 16px;
   animation: borderMove 4s linear infinite;
-
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
+  z-index: 0;
 }
+
 
 @keyframes borderMove {
   0% { background-position: 0% 50%; }
@@ -154,21 +166,23 @@ html, body {
 }
 
 /* Waktu & tanggal */
-#time, #date {
-  font-family: 'Nico Moji', sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
 #datetime-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Nico Moji', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: right;
+  z-index: 9999;
 }
+
+
 
 /* Tombol bulat */
 .circle-btn {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   background: #d9d9d9;
   border-radius: 50%;
   box-shadow: 
@@ -224,7 +238,7 @@ button.circle-btn {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
 }
 
 .grid-box {

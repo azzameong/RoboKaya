@@ -11,7 +11,7 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  if (current === "hal1") title.textContent = "ABOUT";
+  if (current === "hal1") title.textContent = "HOME";
   if (current === "hal2") title.textContent = "PREFERENCE";
   if (current === "hal3") title.textContent = "PORTFOLIO";
   if (current === "hal4") title.textContent = "COMMENT";
@@ -20,25 +20,29 @@ window.addEventListener("scroll", () => {
 function updateDateTime() {
   const now = new Date();
 
-  // Format jam:menit
+  const monthNames = [
+    "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+  ];
+
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = monthNames[now.getMonth()];
+  const year = now.getFullYear();
+
   const time = now.toLocaleTimeString("id-ID", {
     hour: "2-digit",
     minute: "2-digit",
+    second: "2-digit",
     hour12: false
   });
 
-  // Format tanggal dd/mm/yyyy
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const year = now.getFullYear();
-  const date = `${day}/${month}/${year}`;
-
-  // Gabung jadi satu baris
-  document.getElementById("time").textContent = `${time} WIB`;
-  document.getElementById("date").textContent = date;
+  document.getElementById("datetime-container").textContent =
+    `${day} ${month} ${year}, ${time} WIB`;
 }
+
 setInterval(updateDateTime, 1000);
 updateDateTime();
+
 
 document.getElementById("search-btn").addEventListener("click", function () {
   const input = document.getElementById("search-input");

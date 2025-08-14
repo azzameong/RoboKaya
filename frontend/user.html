@@ -1,115 +1,102 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Robokaya</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/earlyaccess/nicomoji.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="CSS/user.css" />
-  </head>
-  <body>
-    <!-- Sidebar -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robokaya</title>
 
-    <aside class="sidebar">
-      <div class="logo">
-        <img src="logo.png" alt="Robokaya" class="logo-img" />
-      </div>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-      <nav aria-label="Menu Sidebar" class="menu">
-        <ul>
-          <li>
-            <a href="#hal1" aria-label="Halaman 1">
-              <span class="material-symbols-outlined" aria-hidden="true"
-                >home</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="#hal2" aria-label="Halaman 2">
-              <span class="material-symbols-outlined" aria-hidden="true"
-                >assignment</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="#hal3" aria-label="Halaman 3">
-              <span class="material-symbols-outlined" aria-hidden="true"
-                >article_person</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="#hal4" aria-label="Halaman 4">
-              <span class="material-symbols-outlined" aria-hidden="true"
-                >comment_bank</span
-              >
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="bottom-section">
-        <a href="#profile" aria-label="Profile">
-          <span class="circle-btn material-symbols-outlined gradient-icon" aria-hidden="true"
-            >account_circle</span
-          >
-        </a>
-        <a href="#logout" aria-label="Logout">
-          <span class="circle-btn material-symbols-outlined" aria-hidden="true"
-            >power_settings_new</span
-          >
-        </a>
-      </div>
-    </aside>
-
-    <div class="content-wrapper">
-      <header class="header">
-        <div class="header-left">Hi, Dhea</div>
-        <div class="header-center" id="page-title">Halaman 1</div>
-        <div class="header-right">
-          <div id="datetime-container">
-            <div id="time"></div>
-            <div id="date"></div>
-          </div>
-       <div class="search-container">
-    <input type="text" id="search-input" placeholder="Cari..." />
-    <button class="circle-btn" id="search-btn">
-      <span class="material-symbols-outlined">search</span>
-    </button>
-  </div>
-
-          </button>
-        </div>
-      </header>
-
-      <!-- Konten -->
-      <main class="content">
-        <section id="hal1" class="page">
-          <div class="grid-box">Halaman 1 - Konten</div>
-        </section>
-        <section id="hal2" class="page">
-          <div class="grid-box">Halaman 2 - Konten</div>
-        </section>
-        <section id="hal3" class="page">
-          <div class="grid-box">Halaman 3 - Konten</div>
-        </section>
-        <section id="hal4" class="page">
-          <div class="grid-box">Halaman 4 - Konten</div>
-        </section>
-      </main>
+  <!-- Styles -->
+  <link rel="stylesheet" href="CSS/user.css" />
+</head>
+<body>
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Robokaya" class="logo-img" />
     </div>
 
-    <script src="JS/user.js"></script>
-  </body>
+    <nav aria-label="Menu Sidebar" class="menu">
+      <ul>
+        <li>
+          <a href="#hal1" aria-label="Halaman 1">
+            <span class="material-symbols-outlined" aria-hidden="true">home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#hal2" aria-label="Halaman 2">
+            <span class="material-symbols-outlined" aria-hidden="true">assignment</span>
+          </a>
+        </li>
+        <li>
+          <a href="#hal3" aria-label="Halaman 3">
+            <span class="material-symbols-outlined" aria-hidden="true">article_person</span>
+          </a>
+        </li>
+        <li>
+          <a href="#hal4" aria-label="Halaman 4">
+            <span class="material-symbols-outlined" aria-hidden="true">comment_bank</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="bottom-section">
+      <a href="#profile" aria-label="Profile">
+        <span class="circle-btn material-symbols-outlined gradient-icon" aria-hidden="true">account_circle</span>
+      </a>
+      <a href="#logout" aria-label="Logout">
+        <span class="circle-btn material-symbols-outlined" aria-hidden="true">power_settings_new</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <!-- Kosong atau isi sesuai kebutuhan -->
+      </div>
+      <div class="header-center" id="page-title">Halaman 1</div>
+      <div class="header-right">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Cari..." />
+          <button class="circle-btn" id="search-btn">
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Waktu & tanggal di bawah kanan -->
+    <div id="datetime-container"></div>
+
+    <!-- Konten -->
+    <main class="content">
+      <section id="hal1" class="page">
+        <div class="grid-box">Halaman 1 - Konten</div>
+      </section>
+      <section id="hal2" class="page">
+        <div class="grid-box">Halaman 2 - Konten</div>
+      </section>
+      <section id="hal3" class="page">
+        <div class="grid-box">Halaman 3 - Konten</div>
+      </section>
+      <section id="hal4" class="page">
+        <div class="grid-box">Halaman 4 - Konten</div>
+      </section>
+    </main>
+
+  </div> <!-- End .content-wrapper -->
+
+  <!-- Scripts -->
+  <script src="JS/user.js"></script>
+</body>
 </html>
