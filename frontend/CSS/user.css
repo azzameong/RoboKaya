@@ -66,18 +66,42 @@ html, body {
   position: absolute;
   width: 42px;
   height: 284px;
-  background: linear-gradient(to bottom, #f9b233, #435278);
+  background: #d9d9d9;   /* default abu-abu */
   border-radius: 27px;
   z-index: 0;
-
-  /* Drop shadow (luar) + Inner shadow (dalam) */
+  transition: background 0.3s ease; /* animasi smooth */
   box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.25),  /* drop shadow */
-    inset 0 2px 4px rgba(0, 0, 0, 0.25); /* inner shadow */
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.menu:hover::before {
+  background: linear-gradient(180deg, rgba(0,35,102,0.5), rgba(255,165,0,0.5)); /* gradasi biru → oranye */
+}
+/* Efek hover: kasih lingkaran abu-abu di belakang icon */
+.menu ul li a {
+  width: 32px;      /* sama dengan lingkaran lain di sidebar */
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  text-decoration: none;   /* hapus underline */
+  color: inherit;
+}
+
+.menu ul li a:hover {
+  background: #d9d9d9;
 }
 
 
-/* Bagian bawah sidebar */
+.menu ul li a.active .material-symbols-outlined {
+  background: linear-gradient(180deg, #002366, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .bottom-section {
   display: flex;
   flex-direction: column;
@@ -88,13 +112,24 @@ html, body {
   color: white;
   text-decoration: none;
   text-align: center;
-  padding: 5px;
-  border-radius: 8px;
-  transition: background 0.2s;
+  padding: 0;           /* ubah dari 5px ke 0 */
+  border-radius: 50%;   /* pastikan bulat */
+  transition: background 0.2s, color 0.2s;
+  display: flex;        /* agar icon di tengah */
+  align-items: center;
+  justify-content: center;
+  width: 42px;          /* samakan dengan .circle-btn */
+  height: 42px;
+  background: #d9d9d9;
+  box-shadow: 
+    inset 0 0 0 2px #e7e7e7,
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .bottom-section a:hover {
-  background: #444;
+  background: #fff;     /* putih saat hover */
+  color: #1C1B1F;       /* icon berubah biru tua saat hover (opsional) */
 }
 
 /* Wrapper konten */
@@ -102,7 +137,7 @@ html, body {
   margin-left: var(--sidebar-width);
 }
 
-/* Header (tidak perlu dvh) */
+/* Header (left & right only) */
 .header {
   position: fixed;
   top: 0;
@@ -111,59 +146,41 @@ html, body {
   height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* biarkan kiri & kanan */
-  padding: 0 20px;
+  padding: 0 20px 0 0; /* Hapus padding kiri, hanya kanan */
   z-index: 1000;
 }
 
-/* Indikator halaman */
-#page-title {
+.header-left {
   flex: 1;
   display: flex;
   align-items: center;
   height: 32px;
-  margin: 0 32px 0 32px;
-  padding: 0 32px;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 165, 0, 0.10),
-    rgba(0, 35, 102, 0.10)
-  );
+  margin: 0;
+  padding: 0; /* Hapus padding kiri */
+  background: none;
   font-family: 'Nico Moji', sans-serif;
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 300;
   color: black;
   min-width: 0;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
 }
 
-/* Border animasi tetap sama */
-#page-title::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  padding: 1px;
-  background: linear-gradient(270deg, #FFA500, #002366, #FFA500);
-  background-size: 300% 300%;
-  border-radius: 16px;
-  animation: borderMove 4s linear infinite;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-  z-index: 0;
+.header-left::before {
+  display: none;
 }
 
-
-@keyframes borderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
+
+/* Hapus #page-title jika sudah tidak dipakai, atau biarkan jika ingin tetap pakai di .header-left */
 
 /* Waktu & tanggal */
 #datetime-container {
@@ -238,7 +255,7 @@ button.circle-btn {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 20px;
-  padding: 20px 20px 20px 0;
+  padding: 72px 20px 20px 0;
 }
 
 .grid-box {
@@ -248,4 +265,138 @@ button.circle-btn {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+}
+
+/* Tambahan untuk canvas latar belakang */
+#molecule-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.preference-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 72px;
+  min-height: 100vh;
+  position: relative; /* tambahkan ini */
+}
+
+.preference-section .question-title {
+  font-family: 'Nico Moji', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  margin-top: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.preference-section .question-subtitle {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #ff7b00, #ffb700);
+}
+
+.qa-box {
+  grid-column: span 12; /* kotak memenuhi semua 12 kolom */
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.question-text {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.answer-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Wrapper tombol preference */
+.preference-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto; /* ini membuatnya rata bawah */
+  margin-bottom: 32px; /* beri jarak dari bawah jika perlu */
+  width: 100%;
+}
+
+.preference-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 64px; /* ubah dari 16px ke 64px */
+  height: 56px;
+  background: transparent;
+  border: 1.5px solid #bdbdbd;
+  border-radius: 32px;
+  padding: 0 18px;
+  box-sizing: border-box;
+  width: fit-content;
+  min-width: 0;
+}
+
+/* Tombol navigasi di section preference */
+.preference-nav button,
+.preference-nav .circle-btn {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  max-width: 42px;
+  max-height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+/* KECUALI tombol submit */
+.preference-nav .btn-submit {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  height: 42px;
+  padding: 0 15px;
+  border-radius: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: linear-gradient(to right, #ff7b00, #ffb700);
+  color: white;
+  font-family: 'Nico Moji', sans-serif;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  line-height: 1;
 }
