@@ -98,8 +98,10 @@ html, body {
 
 .menu ul li a.active .material-symbols-outlined {
   background: linear-gradient(180deg, #002366, #FFA500);
-  -webkit-background-clip: text;
+  -webkit-background-clip: text; 
+  background-clip: text;         
   -webkit-text-fill-color: transparent;
+  color: transparent;          
 }
 
 .bottom-section {
